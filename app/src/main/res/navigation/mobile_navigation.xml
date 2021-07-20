@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/navigation_takeout">
+
+    <fragment
+        android:id="@+id/navigation_takeout"
+        android:name="com.r948.orderedtakeout.view.TakeOutFragment"
+        android:label="@string/title_takeout"
+        tools:layout="@layout/fragment_takeout" />
+
+    <fragment
+        android:id="@+id/navigation_order"
+        android:name="com.r948.orderedtakeout.view.OrderFragment"
+        android:label="@string/title_order"
+        tools:layout="@layout/fragment_order" />
+
+    <fragment
+        android:id="@+id/navigation_me"
+        android:name="com.r948.orderedtakeout.view.MeFragment"
+        android:label="@string/title_me"
+        tools:layout="@layout/fragment_me" />
+</navigation>

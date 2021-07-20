@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_takeout"
+        android:icon="@drawable/ic_takeout_blue"
+        android:title="@string/title_takeout" />
+
+    <item
+        android:id="@+id/navigation_order"
+        android:icon="@drawable/ic_order_blue"
+        android:title="@string/title_order" />
+
+    <item
+        android:id="@+id/navigation_me"
+        android:icon="@drawable/ic_me_blue"
+        android:title="@string/title_me" />
+
+</menu>
