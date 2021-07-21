@@ -17,7 +17,7 @@ public class ShowShop {
     private final MutableLiveData<String> icon = new MutableLiveData<>();
 
     /**
-     * 商家得分
+     * 商家评分
      */
     private final MutableLiveData<Float> score = new MutableLiveData<>();
 
@@ -25,6 +25,12 @@ public class ShowShop {
      * 商家销量
      */
     private final MutableLiveData<Integer> salesVolume = new MutableLiveData<>();
+
+    /**
+     * 用户与商家的距离
+     */
+    private final MutableLiveData<String> distance = new MutableLiveData<>();
+
 
     public MutableLiveData<String> getName() {
         return name;
@@ -40,5 +46,9 @@ public class ShowShop {
 
     public MutableLiveData<Integer> getSalesVolume() {
         return salesVolume;
+    }
+
+    public MutableLiveData<String> getDistance() {
+        return distance;
     }
 }
