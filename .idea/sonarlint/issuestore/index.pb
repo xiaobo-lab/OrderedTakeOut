@@ -1,8 +1,6 @@
 
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-n
->app/src/main/java/com/r948/orderedtakeout/data/model/User.java,e\e\ee8441c5503e2632837c8d4d370f31ca46c67d6b
 p
 @app/src/main/java/com/r948/orderedtakeout/view/MainActivity.java,1\e\1ee90eb344ab2f492c5f1658b925b4fc8c9cc9e1
 n
