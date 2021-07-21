@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="已售0"
-            android:textColor="5B5B5B"
+            android:textColor="#5B5B5B"
             android:textSize="24sp" />
     </LinearLayout>
 

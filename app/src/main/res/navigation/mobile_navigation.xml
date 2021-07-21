@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/navigation_takeout"
-        android:name="com.r948.orderedtakeout.view.TakeOutFragment"
+        android:name="com.r948.orderedtakeout.view.TakeoutFragment"
         android:label="@string/title_takeout"
         tools:layout="@layout/fragment_takeout" />
 

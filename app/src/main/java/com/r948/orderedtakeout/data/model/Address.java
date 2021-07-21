@@ -12,6 +12,9 @@ public class Address {
     @ColumnInfo(name = "address_id")
     public int addressId;
 
+    @ColumnInfo(name = "user_id")
+    public int userId;
+
     @ColumnInfo(name = "address_name")
     public String addressName;
 
@@ -24,8 +27,9 @@ public class Address {
     public Address() { }
 
     @Ignore
-    public Address(int addressId, String addressName, String addressPhone, String address) {
+    public Address(int addressId, int userId, String addressName, String addressPhone, String address) {
         this.addressId = addressId;
+        this.userId = userId;
         this.addressName = addressName;
         this.addressPhone = addressPhone;
         this.address = address;
