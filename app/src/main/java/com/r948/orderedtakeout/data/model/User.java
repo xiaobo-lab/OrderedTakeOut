@@ -24,14 +24,18 @@ public class User {
     @ColumnInfo(name = "role")
     public byte role;
 
+    @ColumnInfo(name = "user_head_icon")
+    public String userHeadIcon;
+
     public User() { }
 
     @Ignore
-    public User(int userId, String userPhone, String password, String username, byte role) {
+    public User(int userId, String userPhone, String password, String username, byte role, String userHeadIcon) {
         this.userId = userId;
         this.userPhone = userPhone;
         this.password = password;
         this.username = username;
         this.role = role;
+        this.userHeadIcon = userHeadIcon;
     }
 }
