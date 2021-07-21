@@ -1,6 +1,6 @@
-package com.r948.orderedtakeout.data.local.dao;
+package com.r948.data.local.dao;
 
-import com.r948.orderedtakeout.data.model.Address;
+import com.r948.data.model.Address;
 
 public interface AddressDao {
     /**

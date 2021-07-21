@@ -1,7 +1,7 @@
-package com.r948.orderedtakeout.data.net.dao;
+package com.r948.data.net.dao;
 
-import com.r948.orderedtakeout.data.model.Order;
-import com.r948.orderedtakeout.data.model.OrderCommodity;
+
+import com.r948.data.model.OrderCommodity;
 
 public interface OrderCommodityDao {
 
@@ -13,7 +13,7 @@ public interface OrderCommodityDao {
      * @sql select * from order_commodity where order_id =: orderId;
      */
 
-    OrderCommodity [] findOrderCommodityByOrderId(int orderId);
+    OrderCommodity[] findOrderCommodityByOrderId(int orderId);
 
     /**
      *

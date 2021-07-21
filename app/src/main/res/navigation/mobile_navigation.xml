@@ -6,19 +6,19 @@
 
     <fragment
         android:id="@+id/navigation_takeout"
-        android:name="com.r948.orderedtakeout.view.TakeoutFragment"
+        android:name="com.r948.views.takeout.TakeoutFragment"
         android:label="@string/title_takeout"
         tools:layout="@layout/fragment_takeout" />
 
     <fragment
         android:id="@+id/navigation_order"
-        android:name="com.r948.orderedtakeout.view.OrderFragment"
+        android:name="com.r948.views.order.OrderFragment"
         android:label="@string/title_order"
         tools:layout="@layout/fragment_order" />
 
     <fragment
         android:id="@+id/navigation_me"
-        android:name="com.r948.orderedtakeout.view.MeFragment"
+        android:name="com.r948.views.me.MeFragment"
         android:label="@string/title_me"
         tools:layout="@layout/fragment_me" />
 </navigation>
