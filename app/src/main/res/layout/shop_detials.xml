@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Shop2">
+
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="80dp"
+        android:background="#A6A4A4"
+        app:layout_constraintBottom_toTopOf="@+id/shop_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#A6A4A4"
+            app:srcCompat="@drawable/ic_back" />
+
+        <ImageButton
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="400dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#A6A4A4"
+            app:srcCompat="@drawable/ic_search" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/shop_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/shop_name"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/sale_volume"
+        app:layout_constraintStart_toStartOf="@+id/picture" />
+
+    <TextView
+        android:id="@+id/shop_score1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="25dp"
+        android:text="@string/shop_score"
+        app:layout_constraintBottom_toTopOf="@+id/order"
+        app:layout_constraintEnd_toStartOf="@+id/sale_volume"
+        app:layout_constraintStart_toEndOf="@+id/order" />
+
+    <TextView
+        android:id="@+id/sale_volume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="150dp"
+        android:text="@string/sale_volume"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+        app:layout_constraintStart_toEndOf="@+id/order"
+        app:layout_constraintTop_toBottomOf="@+id/picture" />
+
+
+    <Button
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="30dp"
+        android:background=""
+        android:text="@string/score"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/sale_volume"
+        app:layout_constraintTop_toBottomOf="@+id/sale_volume" />
+
+    <Button
+        android:id="@+id/shop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background=""
+        android:text="@string/shop"
+        android:textColor="@color/black"
+        app:layout_constraintBaseline_toBaselineOf="@+id/score"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background=""
+        android:text="@string/order"
+        android:textColor="@color/black"
+        app:layout_constraintBaseline_toBaselineOf="@+id/score"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="138dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toEndOf="@+id/sale_volume"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/shop_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="72dp"
+        android:background="#FFFFFF"
+        android:text="@string/shop_score"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order" />
+
+    <TextView
+        android:id="@+id/comm_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:background="#FFFFFF"
+        android:text="@string/commodity_score"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shop_score" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
