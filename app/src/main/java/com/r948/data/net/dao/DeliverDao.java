@@ -1,6 +1,7 @@
 package com.r948.data.net.dao;
 
-import com.r948.orderedtakeout.data.model.Deliver;
+
+import com.r948.data.model.Deliver;
 
 public interface DeliverDao {
     /**
@@ -9,6 +10,6 @@ public interface DeliverDao {
      * @return 派送员相关信息（一个）
      * @sql select * from deliver where deliver_id =:deliverId;
      */
-    Deliver [] findDeliverByUserId(int deliverId);
+    Deliver[] findDeliverByUserId(int deliverId);
 
 }

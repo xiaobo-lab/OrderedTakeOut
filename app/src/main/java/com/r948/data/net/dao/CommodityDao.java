@@ -1,6 +1,7 @@
 package com.r948.data.net.dao;
 
-import com.r948.orderedtakeout.data.model.Commodity;
+
+import com.r948.data.model.Commodity;
 
 public interface CommodityDao {
     /**
@@ -9,7 +10,7 @@ public interface CommodityDao {
      * @return 一个商品
      * @sql select * from commodity where commodity_id =: commodityId;
      */
-    Commodity [] findCommodityById(int commodityId);
+    Commodity[] findCommodityById(int commodityId);
     /**
      * 根据店铺的id查询店铺的商品，返回值有多条
      * 业务场景：管理店铺信息
