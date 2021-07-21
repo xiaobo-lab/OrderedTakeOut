@@ -6,7 +6,7 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:id="@+id/itempic"
+        android:id="@+id/shop_pic"
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:src="@drawable/ic_order_blue" />
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="已售0"
-            android:textColor="#5B5B5B"
+            android:textColor="5B5B5B"
             android:textSize="24sp" />
     </LinearLayout>
 

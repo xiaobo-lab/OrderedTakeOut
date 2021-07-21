@@ -2,130 +2,133 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <!--    商店的图标，选取第一个商品的图片作为    -->
+        android:orientation="horizontal"
+        >
+<!--    商店的图标，选取第一个商品的图片作为    -->
         <ImageView
-            android:id="@+id/firstCommodity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/headicon" />
-
+            android:src="@drawable/headicon"
+            android:id="@+id/firstcommodity"
+            />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
+            android:orientation="vertical"
+            >
             <TextView
-                android:id="@+id/shopName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLines="1"
                 android:text="嘉和一品粥（海事方舟店）"
-                android:textSize="20dp" />
-
+                android:textSize="20dp"
+                android:maxLines="1"
+                android:id="@+id/shopname"
+                />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="20-10-10 22:22"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                />
         </LinearLayout>
-
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
-
+            android:layout_gravity="center"
+            >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="预计"
                 android:layout_gravity="center"
                 android:layout_toLeftOf="@+id/time"
-                android:text="预计" />
-
+                />
             <TextView
-                android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_toLeftOf="@+id/sent"
                 android:text="15:55"
-                android:textColor="#65b7e7" />
-
+                android:textColor="#65b7e7"
+                android:layout_toLeftOf="@+id/sent"
+                android:id="@+id/time"
+                android:layout_gravity="center"
+                />
             <TextView
-                android:id="@+id/sent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:text="送达"
+                android:id="@+id/sent"
                 android:layout_gravity="center"
-                android:text="送达" />
+                />
         </RelativeLayout>
     </LinearLayout>
-
     <View
         android:layout_width="match_parent"
-        android:layout_height="20dip" />
-
+        android:layout_height="20dip"
+        />
     <View
         android:layout_width="300dip"
         android:layout_height="0.5dip"
+        android:background="@color/black"
         android:layout_gravity="center"
-        android:background="@color/black" />
+        />
+
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        >
         <TextView
-            android:id="@+id/commodityName"
+            android:id="@+id/commodityname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="望京小腰"
             android:paddingLeft="70dip"
-            android:text="望京小腰" />
-
+            />
         <TextView
             android:id="@+id/count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/commodityName"
+            android:text="等6件"
+            android:layout_toRightOf="@+id/commodityname"
             android:paddingLeft="5dip"
-            android:text="等6件" />
-
+            />
         <TextView
-            android:id="@+id/totalPrice"
+            android:id="@+id/totalprice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="￥42.5"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="10dp"
-            android:text="￥42.5" />
+            />
     </RelativeLayout>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_toLeftOf="@+id/moreOrder"
             android:background="@drawable/btn_style"
             android:text="评价"
-            android:textColor="@color/black" />
-
+            android:textColor="@color/black"
+            android:layout_toLeftOf="@+id/moreorder"
+            android:layout_marginRight="10dp"
+            />
         <Button
-            android:id="@+id/moreOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:id="@+id/moreorder"
             android:background="@drawable/btn_style"
             android:text="再来一单"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:layout_alignParentRight="true"
+            />
     </RelativeLayout>
 </LinearLayout>
