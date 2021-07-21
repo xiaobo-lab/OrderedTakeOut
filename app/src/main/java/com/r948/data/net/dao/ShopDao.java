@@ -2,6 +2,10 @@ package com.r948.data.net.dao;
 
 import com.r948.data.model.Shop;
 
+import org.json.JSONException;
+
+import java.io.IOException;
+
 public interface ShopDao {
 
     /**
@@ -11,7 +15,7 @@ public interface ShopDao {
      * @return user_id符合的Shop数组
      * @sql select * from `shop` where user_id = :userId
      */
-    Shop[] findShopByUserId(int userId);
+    Shop[] findShopByUserId(int userId)throws IOException, JSONException;
 
     /**
      * 根据商铺id查找商铺
@@ -20,7 +24,7 @@ public interface ShopDao {
      * @return shop_id符合的Shop数组
      * @sql select * from `shop` where shop_id = :shopId
      */
-    Shop[] findShopByShopId(int shopId);
+    Shop[] findShopByShopId(int shopId)throws IOException, JSONException;
 
     /**
      * 根据商品类别查找店铺
@@ -29,7 +33,7 @@ public interface ShopDao {
      * @return 有该类别商品的Shop数组
      * @sql select `shop`.* from `shop`,`commodity` where shop.shop_id = commodity.shop_id and commodity.sort = :sort
      */
-    Shop[] findShopByCommSort(int sort);
+    Shop[] findShopByCommSort(int sort)throws IOException, JSONException;
 
     /**
      * 添加店铺
@@ -40,7 +44,7 @@ public interface ShopDao {
             values(:shop.userId, :shop.shopName, :shop.shopLon, :shop.shopLat, :shop.introduction,
             :shop.distance, :shop.state, :shop.shopHeadIcon);
      */
-    int addShop(Shop shop);
+    int addShop(Shop shop)throws IOException, JSONException;
 
     /**
      * 更新店铺
@@ -51,5 +55,5 @@ public interface ShopDao {
             shop_lat = :shop.shopLat, introduction = :shop.introduction, distance = :shop.distance,
             state = :shop.state, shop_head_icon = :shop.shopHeadIcon where shop_id = :shop.shopId
      */
-    int updateShop(Shop shop);
+    int updateShop(Shop shop)throws IOException, JSONException;
 }

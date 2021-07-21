@@ -2,6 +2,10 @@ package com.r948.data.net.dao;
 
 import com.r948.data.model.User;
 
+import org.json.JSONException;
+
+import java.io.IOException;
+
 public interface UserDao {
 
     /**
@@ -11,7 +15,7 @@ public interface UserDao {
      * @return 手机号符合的User数组
      * @sql select * from `user` where user_phone = :userPhone
      */
-    User[] findUserByPhone(String userPhone);
+    User[] findUserByPhone(String userPhone)throws IOException, JSONException;
 
     /**
      * 根据手机号和密码查找用户
@@ -21,7 +25,7 @@ public interface UserDao {
      * @return 手机号和密码正确的User数组
      * @sql select * from `user` where user_phone = :userPhone and password = :password
      */
-    User[] queryUsersByLoginInfo(String phone, String password);
+    User[] queryUsersByLoginInfo(String phone, String password)throws IOException, JSONException;
 
     /**
      * 更新用户
@@ -30,5 +34,5 @@ public interface UserDao {
      * @return 受影响行数
      * @sql update `user` set user_phone = :user.userPhone, password = :user.password, username = :user.username, user_head_icon = :user.userHeadIcon, role = :user.role where user_id = user.userId
      */
-    int updateUser(User user);
+    int updateUser(User user)throws IOException, JSONException;
 }

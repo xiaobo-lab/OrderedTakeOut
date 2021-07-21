@@ -2,6 +2,10 @@ package com.r948.data.net.dao;
 
 import com.r948.data.model.OrderCommodity;
 
+import org.json.JSONException;
+
+import java.io.IOException;
+
 public interface OrderCommodityDao {
     /**
      *
@@ -11,7 +15,7 @@ public interface OrderCommodityDao {
      * @sql select * from order_commodity where order_id =: orderId;
      */
 
-    OrderCommodity[] findOrderCommodityByOrderId(int orderId);
+    OrderCommodity[] findOrderCommodityByOrderId(int orderId) throws IOException, JSONException;
 
     /**
      *
@@ -22,5 +26,5 @@ public interface OrderCommodityDao {
      * @sql insert into order_commodity (order_id,commodity_id,quantity) values(orderCommodity.orderId,orderCommodity.commodityId,orderCommodity.quantity);
      */
 
-    int addOrderCommodity(OrderCommodity orderCommodity);
+    int addOrderCommodity(OrderCommodity orderCommodity)throws IOException, JSONException;
 }
