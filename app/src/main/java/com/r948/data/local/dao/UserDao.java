@@ -1,8 +1,8 @@
 package com.r948.data.local.dao;
 
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.Query;
 
 import com.r948.data.model.User;
 
@@ -11,20 +11,18 @@ public interface UserDao {
     /**
      * 应用场景：登录、个人信息查询和管理
      *
-     * @param phone
-     * @param password
+     * @param phone    phone
+     * @param password password
      * @return 一条用户信息
-     * @sql select *from user where user_phone =: phone and password =: password;
      */
+    @Query("select *from user where user_phone =:phone and password =:password")
     User[] queryUsersByLoginInfo(String phone, String password);
 
     /**
      * 应用场景：注册用户
      *
-     * @param user
-     * @sql insert into user (user_phone,password,username,user_head_icon,role) values(user.userPhone,user.password,user.username,userHeadIcon,role);
+     * @param user user
      */
+    @Insert
     void addUser(User user);
-    //请删除该语句
-    void deleteUser(User user);
 }

@@ -2,6 +2,8 @@ package com.r948.data.net.dao;
 
 import com.r948.data.model.Commodity;
 
+import java.io.IOException;
+
 public interface CommodityDao {
     /**
      * 根据商品ID查询这个商品的所有信息
@@ -9,7 +11,7 @@ public interface CommodityDao {
      * @return 一个商品
      * @sql select * from commodity where commodity_id =: commodityId;
      */
-    Commodity[] findCommodityById(int commodityId);
+    Commodity[] findCommodityById(int commodityId) throws IOException;
     /**
      * 根据店铺的id查询店铺的商品，返回值有多条
      * 业务场景：管理店铺信息
@@ -17,7 +19,7 @@ public interface CommodityDao {
      * @return 多条商品
      * @sql select * from commodity where shop_id =: shopId;
      */
-    Commodity [] findCommodityByShopId(int shopId);
+    Commodity [] findCommodityByShopId(int shopId) throws IOException;
     /**
      * 删除商品
      * 业务场景：店铺信息管理
@@ -25,7 +27,7 @@ public interface CommodityDao {
      * @return 受影响的行数
      * @sql delete from Commodity where commodity_id =: commodityId;
      */
-    int deleteCommodityById(int commodityId);
+    int deleteCommodityById(int commodityId) throws IOException;
     /**
      * 更新该商品的信息
      * 应用场景：商品信息管理
@@ -38,7 +40,7 @@ public interface CommodityDao {
      * comm_score =: commodity.commScore,sales_volume =: salesVolume,picture =: commodity.picture
      * where commodity_id =:commodity.commodityId;
      */
-    int updateCommodity(Commodity commodity, int commodityId);
+    int updateCommodity(Commodity commodity, int commodityId) throws IOException;
     /**
      *
      * 添加一个新商品
