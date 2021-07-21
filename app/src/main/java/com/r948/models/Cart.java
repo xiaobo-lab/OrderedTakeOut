@@ -7,11 +7,6 @@ import androidx.lifecycle.MutableLiveData;
  */
 public class Cart {
     /**
-     * 商家名称
-     */
-    private final MutableLiveData<String> shopName = new MutableLiveData<>();
-
-    /**
      * 商品名称
      */
     private final MutableLiveData<String> commodityName = new MutableLiveData<>();
@@ -26,9 +21,15 @@ public class Cart {
      */
     private final MutableLiveData<Integer> commodityNumber = new MutableLiveData<>();
 
-    public MutableLiveData<String> getShopName() {
-        return shopName;
-    }
+    /**
+     * 商品图片
+     */
+    private final MutableLiveData<String> commodityImage = new MutableLiveData<>();
+
+    /**
+     * 所有商品总价
+     */
+    private final MutableLiveData<Float> totalPrice = new MutableLiveData<>();
 
     public MutableLiveData<String> getCommodityName() {
         return commodityName;
@@ -40,5 +41,13 @@ public class Cart {
 
     public MutableLiveData<Integer> getCommodityNumber() {
         return commodityNumber;
+    }
+
+    public MutableLiveData<Float> getTotalPrice() {
+        return totalPrice;
+    }
+
+    public MutableLiveData<String> getCommodityImage() {
+        return commodityImage;
     }
 }
