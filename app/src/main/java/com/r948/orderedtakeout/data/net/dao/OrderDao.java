@@ -5,10 +5,24 @@ import com.r948.orderedtakeout.data.model.OrderCommodity;
 
 public interface OrderDao {
 
-    // select * from order where user_id = :userid
+    /**
+     *
+     * 根据用户id查询订单
+     *
+     * @param userid
+     * @return user_id符合的Order数组
+     * @sql select * from order where user_id = :userid
+     */
     Order[] findOrderByUserId(int userid);
 
-    // select * from order where deliver_id = :deliverId
+    /**
+     *
+     * 根据骑手id查询订单
+     *
+     * @param deliverId
+     * @return deliver_id符合的Order数组
+     * @sql select * from order where deliver_id = :deliverId
+     */
     Order[] findOrderByDeliverId(int deliverId);
 
     // insert
