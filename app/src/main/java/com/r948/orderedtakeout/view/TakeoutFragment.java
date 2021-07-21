@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import com.r948.orderedtakeout.databinding.FragmentTakeoutBinding;
 
-public class TakeOutFragment extends Fragment {
+public class TakeoutFragment extends Fragment {
     private FragmentTakeoutBinding binding;
 
     @Override
