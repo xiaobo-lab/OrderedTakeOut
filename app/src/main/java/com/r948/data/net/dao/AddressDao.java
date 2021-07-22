@@ -8,16 +8,16 @@ public interface AddressDao {
     /**
      * 应用场景：用户查询和管理自己的地址
      *
-     * @param userId
+     * @param userId user id
      * @return 用户的所有address
-     * @sql select * from address where address.user_id =: userId;
+     * @sql select * from address where user_id =: userId;
      */
     Address[] findAddressByUserId(int userId) throws IOException;
 
     /**
      * 应用场景：用户添加一条新的地址
      *
-     * @param address insert into address (user_id,address_name,address_phone,address_lon,address_lat) values(address.userId,address.addressName,address.addressPhone,address.addressLon,address.addressLat);
+     * @param address
      */
     int addAddress(Address address) throws IOException;
 
@@ -25,7 +25,6 @@ public interface AddressDao {
      * 应用场景：删除指定的地址
      *
      * @param addressId
-     * @sql delete from address where address_id =: addressId;
      */
     int deleteAddressById(int addressId) throws IOException;
 
@@ -34,7 +33,8 @@ public interface AddressDao {
      *
      * @param address
      * @param addressId
-     * @sql update address set user_id =: userId ,address_name =: address.addressName, address_phone =: address.addressPhone,address_lon =: address.addressLon,address_lat =: addressLat where address_id =: addressId;
+     * @sql update address set user_id =: userId ,address_name =: address.addressName, address_phone =: address.addressPhone,
+     * address_lon =: address.addressLon,address_lat =: addressLat where address_id =: addressId;
      */
     int updateAddress(Address address, int addressId) throws IOException;
 }

@@ -2,6 +2,10 @@ package com.r948.data.net.dao;
 
 import com.r948.data.model.User;
 
+import org.json.JSONException;
+
+import java.io.IOException;
+
 public interface UserDao {
 
     /**
@@ -11,7 +15,7 @@ public interface UserDao {
      * @return 手机号符合的User数组
      * @sql select * from `user` where user_phone = :userPhone
      */
-    User[] findUserByPhone(String userPhone);
+    User[] findUserByPhone(String userPhone) throws JSONException, IOException;
 
     /**
      * 根据手机号和密码查找用户

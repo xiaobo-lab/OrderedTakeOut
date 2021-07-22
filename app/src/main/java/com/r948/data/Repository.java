@@ -50,6 +50,4 @@ public class Repository {
         }
         return res == 1;
     }
-
-
 }
