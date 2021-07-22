@@ -21,9 +21,8 @@ public class DjangoAddressDao implements AddressDao {
 
     @Override
     public Address[] findAddressByUserId(int userId) throws IOException, JSONException {
-        JSONObject result = new JSONObject(HttpUtil.sendHttpPostRequest(url, "find_address_by_user_id",
-                new JSONObject()
-                        .put("user_id", userId).toString()));
+        JSONObject result = new JSONObject(HttpUtil.sendHttpPostRequest(url, "find_address_by_user_id", new JSONObject()
+                .put("user_id", userId).toString()));
         String error = result.getString("error");
         if (!StringUtil.haveNullOrEmpty(error)) {
             throw new IOException(error);
