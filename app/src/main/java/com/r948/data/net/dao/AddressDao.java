@@ -34,9 +34,8 @@ public interface AddressDao {
      * 应用场景：用户更新自己的某条地址
      *
      * @param address
-     * @param addressId
      * @sql update address set user_id =: userId ,address_name =: address.addressName, address_phone =: address.addressPhone,
-     * address_lon =: address.addressLon,address_lat =: addressLat where address_id =: addressId;
+     * address_lon =: address.addressLon,address_lat =: addressLat where address_id =: address.addressId;
      */
-    int updateAddress(Address address, int addressId) throws IOException, JSONException;
+    int updateAddress(Address address) throws IOException, JSONException;
 }

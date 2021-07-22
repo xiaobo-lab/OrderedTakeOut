@@ -34,7 +34,6 @@ public interface CommodityDao {
      * 更新该商品的信息
      * 应用场景：商品信息管理
      * @param commodity
-     * @param commodityId
      * @return 受影响的行数
      * @sql update commodity set
      * comm_name =: commodity.commName,shop_id =: commodity.shopId,
@@ -42,7 +41,7 @@ public interface CommodityDao {
      * comm_score =: commodity.commScore,sales_volume =: salesVolume,picture =: commodity.picture
      * where commodity_id =:commodity.commodityId;
      */
-    int updateCommodity(Commodity commodity, int commodityId) throws IOException, JSONException;
+    int updateCommodity(Commodity commodity) throws IOException, JSONException;
     /**
      *
      * 添加一个新商品
