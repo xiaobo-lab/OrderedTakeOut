@@ -6,6 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.r948.data.local.dao.AddressDao;
 import com.r948.data.local.dao.UserDao;
 import com.r948.data.model.User;
 
@@ -19,5 +20,7 @@ public abstract class LocalDataSource extends RoomDatabase {
         return appDatabase;
     }
 
-    public abstract UserDao userDao();
+    public abstract UserDao getUserDao();
+
+    public abstract AddressDao getAddressDao();
 }
