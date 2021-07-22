@@ -6,6 +6,10 @@ import androidx.room.Query;
 
 import com.r948.data.model.User;
 
+import org.json.JSONException;
+
+import java.io.IOException;
+
 @Dao
 public interface UserDao {
     /**
@@ -16,7 +20,7 @@ public interface UserDao {
      * @return 一条用户信息
      */
     @Query("select *from user where user_phone =:phone and password =:password")
-    User[] queryUsersByLoginInfo(String phone, String password);
+    User[] queryUsersByLoginInfo(String phone, String password)throws IOException, JSONException;
 
     /**
      * 应用场景：注册用户
@@ -24,5 +28,5 @@ public interface UserDao {
      * @param user user
      */
     @Insert
-    void addUser(User user);
+    void addUser(User user)throws IOException, JSONException;
 }
