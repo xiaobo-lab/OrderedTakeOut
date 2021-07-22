@@ -702,7 +702,9 @@ public class Repository {
             return false;
         }
         try {
-            localAddressDao.deleteAddressById(addressId);
+            Address address = new Address();
+            address.addressId=addressId;
+            localAddressDao.deleteAddressById(address);
         } catch (IOException | JSONException e) {
             message.postValue(e.getMessage());
             return false;
