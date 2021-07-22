@@ -5,4 +5,11 @@
     <string name="title_me">我的</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="comm_sort">
+        <item>早餐</item>
+        <item>快餐</item>
+        <item>水果</item>
+        <item>饮品</item>
+        <item>甜品</item>
+    </string-array>
 </resources>
