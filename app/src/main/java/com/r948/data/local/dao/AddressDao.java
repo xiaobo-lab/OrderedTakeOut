@@ -3,7 +3,6 @@ package com.r948.data.local.dao;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -21,7 +20,7 @@ public interface AddressDao {
      * @param userId user id
      * @return 用户的所有address
      */
-    @Query("select * from address where user_id = :userId")
+    @Query("select * from `address` where user_id = :userId")
     Address[] findAddressByUserId(int userId) throws IOException, JSONException;
 
     /**
@@ -38,7 +37,7 @@ public interface AddressDao {
      * @param addressId address id
      */
     @Delete
-    void deleteAddressById(int addressId) throws IOException, JSONException;
+    void deleteAddressById(Address address) throws IOException, JSONException;
 
     /**
      * 应用场景：用户更新自己的某条地址

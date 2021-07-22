@@ -8,9 +8,10 @@ import androidx.room.RoomDatabase;
 
 import com.r948.data.local.dao.AddressDao;
 import com.r948.data.local.dao.UserDao;
+import com.r948.data.model.Address;
 import com.r948.data.model.User;
 
-@Database(entities = {User.class}, version = 1, exportSchema = false)
+@Database(entities = {User.class, Address.class}, version = 1, exportSchema = false)
 public abstract class LocalDataSource extends RoomDatabase {
     private static LocalDataSource appDatabase;
 
