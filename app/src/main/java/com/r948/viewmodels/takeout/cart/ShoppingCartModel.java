@@ -22,8 +22,8 @@ public class ShoppingCartModel extends RepoViewModel {
      */
     private final MutableLiveData<List<Cart>> shoppingCart = new MutableLiveData<>();
 
-    public ShoppingCartModel(Repository repo) {
-        super(repo);
+    public ShoppingCartModel(Repository repo, MutableLiveData<String> toastMsg) {
+        super(repo, toastMsg);
     }
 
     public MutableLiveData<List<Cart>> getShoppingCart() {

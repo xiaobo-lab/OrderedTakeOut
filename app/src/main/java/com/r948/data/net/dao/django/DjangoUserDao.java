@@ -20,7 +20,7 @@ public class DjangoUserDao implements UserDao {
 
     @Override
     public User[] findUserByPhone(String userPhone) throws JSONException, IOException {
-        JSONObject result = new JSONObject(HttpUtil.sendHttpPostRequest(url, new JSONObject().put("user_phone", userPhone).toString()));
+        JSONObject result = new JSONObject(HttpUtil.sendHttpPostRequest(url, "find_user_by_phone", new JSONObject().put("user_phone", userPhone).toString()));
         String error = result.getString("error");
         if (!StringUtil.haveNullOrEmpty(error)) {
             throw new IOException(error);
@@ -35,12 +35,18 @@ public class DjangoUserDao implements UserDao {
     }
 
     @Override
-    public User[] queryUsersByLoginInfo(String phone, String password) {
+    public User[] queryUsersByLoginInfo(String phone, String password) throws IOException, JSONException {
         return new User[0];
     }
 
     @Override
-    public int updateUser(User user) {
+    public int updateUser(User user) throws IOException, JSONException {
         return 0;
     }
+
+    @Override
+    public int addUser(User user) throws IOException, JSONException {
+        return 0;
+    }
+
 }

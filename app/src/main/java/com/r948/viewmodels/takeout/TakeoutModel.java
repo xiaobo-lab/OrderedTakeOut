@@ -28,9 +28,10 @@ public class TakeoutModel extends RepoViewModel {
      */
     private final MutableLiveData<List<ShowShop>> showShops = new MutableLiveData<>();
 
-    public TakeoutModel(Repository repo) {
-        super(repo);
+    public TakeoutModel(Repository repo, MutableLiveData<String> toastMsg) {
+        super(repo, toastMsg);
     }
+
 
     public MutableLiveData<List<String>> getHorseLamp() {
         return horseLamp;
@@ -42,5 +43,9 @@ public class TakeoutModel extends RepoViewModel {
 
     public MutableLiveData<List<ShowShop>> getShowShops() {
         return showShops;
+    }
+
+    public void updateHorseLamp() {
+        horseLamp.postValue(repo.queryNetHorseLamp());
     }
 }

@@ -3,6 +3,9 @@
 
     <data>
 
+        <variable
+            name="geography"
+            type="com.r948.viewmodels.GeographyModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -34,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="定位"
+                android:text="@{geography.location}"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_location"
@@ -53,7 +56,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_location" />
 
-            <ImageView
+            <com.youth.banner.Banner
                 android:id="@+id/iv_comm"
                 android:layout_width="0dp"
                 android:layout_height="150dp"

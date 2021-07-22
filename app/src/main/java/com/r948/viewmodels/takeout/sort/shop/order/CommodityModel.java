@@ -34,9 +34,8 @@ public class CommodityModel extends RepoViewModel {
      */
     private final MutableLiveData<Integer> number = new MutableLiveData<>();
 
-
-    public CommodityModel(Repository repo) {
-        super(repo);
+    public CommodityModel(Repository repo, MutableLiveData<String> toastMsg) {
+        super(repo, toastMsg);
     }
 
     public MutableLiveData<String> getImageUrl() {

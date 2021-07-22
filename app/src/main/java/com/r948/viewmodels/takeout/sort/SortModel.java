@@ -24,8 +24,8 @@ public class SortModel extends RepoViewModel {
      */
     private final MutableLiveData<String> sortKind = new MutableLiveData<>();
 
-    public SortModel(Repository repo) {
-        super(repo);
+    public SortModel(Repository repo, MutableLiveData<String> toastMsg) {
+        super(repo, toastMsg);
     }
 
     public MutableLiveData<List<ShowShop>> getShowShops() {

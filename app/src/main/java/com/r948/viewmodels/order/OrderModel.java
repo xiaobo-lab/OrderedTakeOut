@@ -34,8 +34,8 @@ public class OrderModel extends RepoViewModel {
      */
     private final MutableLiveData<String> state = new MutableLiveData<>();
 
-    public OrderModel(Repository repo) {
-        super(repo);
+    public OrderModel(Repository repo, MutableLiveData<String> toastMsg) {
+        super(repo, toastMsg);
     }
 
     public MutableLiveData<String> getShopImage() {

@@ -43,9 +43,8 @@ public class SearchModel extends RepoViewModel {
      */
     private final MutableLiveData<List<List<String>>> commodityPrice = new MutableLiveData<>();
 
-
-    public SearchModel(Repository repo) {
-        super(repo);
+    public SearchModel(Repository repo, MutableLiveData<String> toastMsg) {
+        super(repo, toastMsg);
     }
 
     public MutableLiveData<List<ShowShop>> getShowShops() {

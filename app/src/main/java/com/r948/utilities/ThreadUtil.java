@@ -11,7 +11,9 @@ public class ThreadUtil {
         new Thread() {
             @Override
             public void run() {
-                runnable.run();
+                synchronized (ThreadUtil.class) {
+                    runnable.run();
+                }
             }
         }.start();
     }

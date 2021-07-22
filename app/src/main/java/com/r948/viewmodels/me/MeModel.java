@@ -29,9 +29,9 @@ public class MeModel extends RepoViewModel {
      */
     private final MutableLiveData<Byte> role = new MutableLiveData<>();
 
-    public MeModel(Repository repo) {
-        super(repo);
-
+    public MeModel(Repository repo, MutableLiveData<String> toastMsg, Integer userId) {
+        super(repo, toastMsg);
+        this.userId = userId;
     }
 
     public void setUserId(Integer userId) {
