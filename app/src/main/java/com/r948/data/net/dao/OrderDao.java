@@ -22,7 +22,7 @@ public interface OrderDao {
      *
      * @param shopId
      * @return shop_id符合的Order数组
-     * @sql select* from order where shop_id = :shopId
+     * @sql select * from order where shop_id = :shopId
      */
     Order[] findOrderByShopId(int shopId)throws IOException, JSONException;
 

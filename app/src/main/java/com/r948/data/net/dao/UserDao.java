@@ -43,6 +43,7 @@ public interface UserDao {
      * @return int
      * @throws IOException
      * @throws JSONException
+     * @sql INSERT INTO `restaurant`.`user` (`user_phone`, `password`, `username`, `user_head_icon`, `role`) VALUES ('1', '1', '1', '1', '1');
      */
     int addUser(User user)throws IOException, JSONException;
 }
