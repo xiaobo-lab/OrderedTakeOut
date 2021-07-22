@@ -37,7 +37,7 @@ public interface UserDao {
     int updateUser(User user)throws IOException, JSONException;
 
     /**
-     *
+     *就
      * 添加用户，服务端
      * @param user
      * @return int
