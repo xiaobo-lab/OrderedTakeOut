@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Locale;
 
 public class HttpUtil {
 
@@ -18,8 +19,8 @@ public class HttpUtil {
      * @param data data
      * @return http response body
      */
-    public static String sendHttpPostRequest(@NonNull String url, @NonNull String data) throws IOException {
-        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+    public static String sendHttpPostRequest(@NonNull String url, @NonNull String subUrl, @NonNull String data) throws IOException {
+        HttpURLConnection connection = (HttpURLConnection) new URL(String.format(Locale.CHINA, "%s/%s", url, subUrl)).openConnection();
         connection.setRequestMethod("POST");
         connection.setConnectTimeout(1000);
         connection.setReadTimeout(1000);

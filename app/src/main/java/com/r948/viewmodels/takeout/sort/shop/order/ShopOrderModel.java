@@ -28,8 +28,8 @@ public class ShopOrderModel extends RepoViewModel {
      */
     private final MutableLiveData<List<Cart>> showCartList = new MutableLiveData<>();
 
-    public ShopOrderModel(Repository repo) {
-        super(repo);
+    public ShopOrderModel(Repository repo, MutableLiveData<String> toastMsg) {
+        super(repo, toastMsg);
     }
 
     public MutableLiveData<List<ShowCommodity>> getShowCommodityList() {

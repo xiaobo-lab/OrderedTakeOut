@@ -24,8 +24,8 @@ public class ShopModel extends RepoViewModel {
      */
     private final MutableLiveData<String> shopSalesVolume = new MutableLiveData<>();
 
-    public ShopModel(Repository repo) {
-        super(repo);
+    public ShopModel(Repository repo, MutableLiveData<String> toastMsg) {
+        super(repo, toastMsg);
     }
 
     public MutableLiveData<String> getShopIcon() {

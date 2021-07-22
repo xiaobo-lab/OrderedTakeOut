@@ -69,9 +69,8 @@ public class DeliverModel extends RepoViewModel {
      */
     private final MutableLiveData<String> shopPhone = new MutableLiveData<>();
 
-
-    public DeliverModel(Repository repo) {
-        super(repo);
+    public DeliverModel(Repository repo, MutableLiveData<String> toastMsg) {
+        super(repo, toastMsg);
     }
 
     public MutableLiveData<String> getDeliverIcon() {

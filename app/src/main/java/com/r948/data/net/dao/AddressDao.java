@@ -12,7 +12,7 @@ public interface AddressDao {
      *
      * @param userId user id
      * @return 用户的所有address
-     * @sql select * from address where user_id =: userId;
+     * @sql select * from address where user_id = {};
      */
     Address[] findAddressByUserId(int userId) throws IOException, JSONException;
 

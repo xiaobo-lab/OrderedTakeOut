@@ -24,6 +24,8 @@ import com.r948.data.net.dao.UserDao;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 public class Repository {
     private final MutableLiveData<String> message;
@@ -37,8 +39,8 @@ public class Repository {
     private final ShopDao shopDao;
     private final UserDao userDao;
 
-    public Repository(LocalDataSource localDataSource, NetDataSource netDataSource, MutableLiveData<String> message) {
-        this.message = message;
+    public Repository(LocalDataSource localDataSource, NetDataSource netDataSource) {
+        message = new MutableLiveData<>();
         localUserDao = localDataSource.getUserDao();
         localAddressDao = localDataSource.getAddressDao();
         addressDao = netDataSource.getAddressDao();
@@ -49,10 +51,15 @@ public class Repository {
         shopDao = netDataSource.getShopDao();
         userDao = netDataSource.getUserDao();
     }
+
+    public MutableLiveData<String> getMessage() {
+        return message;
+    }
+
     //以下为 net.AddressDao的方法
 
     /**
-     *  根据userId向服务器数据库查询address表
+     * 根据userId向服务器数据库查询address表
      *
      * @param userId
      * @return net.Address 类的一个对象数组，若未查到则返回一个长度为0的数组
@@ -96,7 +103,7 @@ public class Repository {
     }
 
     /**
-     *  向服务器数据库的Address表中根据addressId删除条目
+     * 向服务器数据库的Address表中根据addressId删除条目
      *
      * @param addressId
      * @return boolean 当且仅当删除成功并且受影响行数为1时返回true
@@ -118,7 +125,6 @@ public class Repository {
     }
 
     /**
-     *
      * 根据addressId更新服务器数据库的Address表的一条数据
      *
      * @param address
@@ -173,7 +179,7 @@ public class Repository {
      * @param shopId
      * @return Commodity[]  查询出来的商品对象数组，查不出则返回长度为0的数组
      */
-    public Commodity [] findNetCommodityByShopId(int shopId) {
+    public Commodity[] findNetCommodityByShopId(int shopId) {
         Commodity[] commodities;
         if (shopId <= 0) {
             message.postValue("id 为0！(在CommodityDao的findNetCommodityByShopId方法)");
@@ -190,7 +196,6 @@ public class Repository {
     }
 
     /**
-     *
      * 根据commodiyId从服务器数据库中删除一条信息
      *
      * @param commodityId
@@ -238,7 +243,6 @@ public class Repository {
     }
 
     /**
-     *
      * 向服务器数据库添加一条商品数据
      *
      * @param commodity
@@ -264,6 +268,7 @@ public class Repository {
 
     /**
      * 根据userId从服务器数据库查询Deliver信息，用于配送员信息管理
+     *
      * @param userId
      * @return Deliver 返回查询出的Deliver，若未查出则返回属性全为0的对象
      */
@@ -285,6 +290,7 @@ public class Repository {
 
     /**
      * 根据deliverId从服务器数据库查询Deliver信息
+     *
      * @param deliverId
      * @return Deliver 返回查询出的Deliver，若未查出则返回属性全为0的对象
      */
@@ -308,6 +314,7 @@ public class Repository {
 
     /**
      * 根据orderId从服务器数据库order_commodity表中查询一个订单的所有商品
+     *
      * @param orderId
      * @return OrderCommodity[] 返回查询出的OrderCommodity，否则返回长度为0的数组
      */
@@ -329,6 +336,7 @@ public class Repository {
 
     /**
      * 向服务器数据库order_commodity表添加一条数据
+     *
      * @param orderCommodity
      * @return boolean 当且仅当添加成功并且受影响行数为1时为true
      */
@@ -351,8 +359,8 @@ public class Repository {
     //以下是net.OrderDao的
 
     /**
-     *
      * 根据userId向服务器数据库Order表查询该用户的所有订单
+     *
      * @param userId
      * @return Order[] 查询出订单，有多条，若无结果则返回长度为0的数组
      */
@@ -373,8 +381,8 @@ public class Repository {
     }
 
     /**
-     *
      * 根据shopId向服务器Order表查询商家所有的订单
+     *
      * @param shopId
      * @return Order[] 返回查出的订单，多条，若无结果则返回长度为0的数组
      */
@@ -396,6 +404,7 @@ public class Repository {
 
     /**
      * 从服务器数据库查出配送员的所有订单
+     *
      * @param deliverId
      * @return Order[] 返回查出的订单，多条，若无结果则返回长度为0的数组
      */
@@ -417,6 +426,7 @@ public class Repository {
 
     /**
      * 向服务器数据库添加一条订单
+     *
      * @param order
      * @return boolean 当且仅当添加成功并且受影响行数为1时为true
      */
@@ -438,6 +448,7 @@ public class Repository {
 
     /**
      * 根据shopId从服务器数据库查询一条商店信息
+     *
      * @param shopId
      * @return Shop 查出的商店信息，若无则属性为0
      */
@@ -459,6 +470,7 @@ public class Repository {
 
     /**
      * 根据userId从服务器数据库查询一条商店信息
+     *
      * @param userId
      * @return Shop 查出的商店信息，若无则属性为0
      */
@@ -480,6 +492,7 @@ public class Repository {
 
     /**
      * 从服务器数据库，根据商品分类查询有这类商品的店铺
+     *
      * @param sort
      * @return Shop[] 多条商品数据
      */
@@ -500,7 +513,8 @@ public class Repository {
     }
 
     /**
-     *  向服务器数据库添加一条商铺信息
+     * 向服务器数据库添加一条商铺信息
+     *
      * @param shop
      * @return boolean 当且仅当创建商铺成功并且受影响行数为1时为true
      */
@@ -522,6 +536,7 @@ public class Repository {
 
     /**
      * 向服务器数据库更新商铺信息
+     *
      * @param shop
      * @return boolean 当且仅当更新成功并且受影响行数为1时为true
      */
@@ -541,8 +556,10 @@ public class Repository {
         return res == 1;
     }
     //以下为net.UserDao
+
     /**
      * 根据电话向服务器数据查询用户数据
+     *
      * @param phone
      * @return User 根据电话查出的User 若无则返回属性均为0的对象
      */
@@ -563,8 +580,8 @@ public class Repository {
     }
 
     /**
-     *
      * 根据电话和密码向服务器数据库查询用户
+     *
      * @param phone
      * @param password
      * @return User 根据用户密码查出的User，若无则为属性0的对象
@@ -586,7 +603,8 @@ public class Repository {
     }
 
     /**
-     *  更新服务器数据库的User条目
+     * 更新服务器数据库的User条目
+     *
      * @param user
      * @return boolean 当且仅当更新成功并且受影响行数为1时为true
      */
@@ -608,10 +626,11 @@ public class Repository {
 
     /**
      * 向服务器数据库添加一条User
+     *
      * @param user
      * @return boolean 当且仅当添加成功且受影响行数为1时为true
      */
-    public boolean addNetUser(User user){
+    public boolean addNetUser(User user) {
         // 参数有效性检查
         if (user.userPhone == null || user.password == null || user.username == null || user.userHeadIcon == null || user.role < 0 || user.role > 2) {
             message.postValue("user的对象中有属性为null!--(在 userDao的addNetUser方法)");
@@ -630,6 +649,7 @@ public class Repository {
 
     /**
      * 根据userId向本地数据库查询address
+     *
      * @param userId
      * @return Address 地址 多条
      */
@@ -650,7 +670,8 @@ public class Repository {
     }
 
     /**
-     *  向本地数据库添加一条address
+     * 向本地数据库添加一条address
+     *
      * @param address
      * @return boolean
      */
@@ -671,6 +692,7 @@ public class Repository {
 
     /**
      * 根据addressId从本地数据删除一条address
+     *
      * @param addressId
      * @return boolean
      */
@@ -690,6 +712,7 @@ public class Repository {
 
     /**
      * 更新本地数据库的一条address
+     *
      * @param address
      * @return boolean
      */
@@ -708,8 +731,10 @@ public class Repository {
         return true;
     }
     //以下是LocalUserDao的方法
+
     /**
      * 从本地数据库中查询一条User数据,根据密码和手机
+     *
      * @param phone
      * @param password
      * @return User
@@ -732,12 +757,13 @@ public class Repository {
 
     /**
      * 向本地数据库添加一条user
+     *
      * @param user
      * @return boolean
      */
-    public boolean addLocalUser(User user){
+    public boolean addLocalUser(User user) {
         // 参数有效性检查
-        if (user.userPhone==null||user.password==null||user.userHeadIcon==null||user.role<0||user.role>2) {
+        if (user.userPhone == null || user.password == null || user.userHeadIcon == null || user.role < 0 || user.role > 2) {
             message.postValue("address的对象中有属性为null!--(在 UserDao的addLocalUser方法)");
             return false;
         }
@@ -748,5 +774,17 @@ public class Repository {
             return false;
         }
         return true;
+    }
+
+    /**
+     * 获取走马灯图片 url
+     *
+     * @return list
+     */
+    public List<String> queryNetHorseLamp() {
+        return Arrays.asList(
+                "https://p0.meituan.net/shaitu/9823ef7400816d25b5b6516fbeae9df2437864.jpg",
+                "https://p1.meituan.net/biztone/3018a28b1c5685869f4c30ef0d55f8983133641.jpg",
+                "https://p0.meituan.net/xianfu/9e2305ab84f6d33a4c8b10dc2bd4535979872.jpg");
     }
 }

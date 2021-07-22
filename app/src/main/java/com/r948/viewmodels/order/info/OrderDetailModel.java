@@ -52,8 +52,8 @@ public class OrderDetailModel extends RepoViewModel {
      */
     private final MutableLiveData<String> orderTime = new MutableLiveData<>();
 
-    public OrderDetailModel(Repository repo) {
-        super(repo);
+    public OrderDetailModel(Repository repo, MutableLiveData<String> toastMsg) {
+        super(repo, toastMsg);
     }
 
     public MutableLiveData<String> getState() {

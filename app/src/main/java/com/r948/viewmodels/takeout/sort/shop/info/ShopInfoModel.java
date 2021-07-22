@@ -24,8 +24,8 @@ public class ShopInfoModel extends RepoViewModel {
      */
     private final MutableLiveData<String> businessHour = new MutableLiveData<>();
 
-    public ShopInfoModel(Repository repo) {
-        super(repo);
+    public ShopInfoModel(Repository repo, MutableLiveData<String> toastMsg) {
+        super(repo, toastMsg);
     }
 
     public MutableLiveData<String> getPhone() {

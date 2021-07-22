@@ -17,10 +17,11 @@ public class RepoViewModel extends ViewModel {
     /**
      * Toast 弹出消息
      */
-    protected final MutableLiveData<String> toastMsg = new MutableLiveData<>();
+    protected final MutableLiveData<String> toastMsg;
 
-    public RepoViewModel(Repository repo) {
+    public RepoViewModel(Repository repo, MutableLiveData<String> toastMsg) {
         this.repo = repo;
+        this.toastMsg = toastMsg;
     }
 
     public MutableLiveData<String> getToastMsg() {
