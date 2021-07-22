@@ -9,18 +9,11 @@ import com.r948.data.net.dao.OrderDao;
 import com.r948.data.net.dao.ShopDao;
 import com.r948.data.net.dao.UserDao;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-
 public class DjangoNetDataSource implements NetDataSource {
+
     @Override
-    public UserDao getUserDao() throws IOException {
-        HttpURLConnection connection = (HttpURLConnection) new URL("").openConnection();
-        connection.getOutputStream().write("".getBytes());
-        connection.setDoInput(true);
-        return null;
+    public UserDao getUserDao() {
+        return new DjangoUserDao("");
     }
 
     @Override
