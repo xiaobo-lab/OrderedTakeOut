@@ -3,239 +3,262 @@
 
     <data>
 
+        <import type="com.r948.utilities.Constants" />
+
+        <variable
+            name="takeout"
+            type="com.r948.viewmodels.takeout.TakeoutModel" />
+
         <variable
             name="geography"
             type="com.r948.viewmodels.GeographyModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layout1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/sky_blue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/iv_location"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/sky_blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/iv_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_location_white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_location_white" />
+
+                <TextView
+                    android:id="@+id/tv_location_hp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text='@{(geography.city ?? "") + (geography.district ?? "")}'
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_location"
+                    app:layout_constraintStart_toEndOf="@+id/iv_location"
+                    app:layout_constraintTop_toTopOf="@+id/iv_location" />
+
+                <TextView
+                    android:id="@+id/et_search"
+                    android:layout_width="0dp"
+                    android:layout_height="32sp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="搜索"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_location" />
+
+                <com.youth.banner.Banner
+                    android:id="@+id/iv_comm"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    app:banner_radius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_search" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <ImageButton
+                android:id="@+id/ib_center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/ic_location_white"
+                android:layout_marginTop="16dp"
+                android:background="@color/white"
+                android:stateListAnimator="@drawable/select_anmi"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_location_white" />
+                app:layout_constraintTop_toBottomOf="@+id/layout1"
+                app:srcCompat="@drawable/round_button_green" />
+
+            <ImageButton
+                android:id="@+id/ib_left1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/white"
+                android:stateListAnimator="@drawable/select_anmi"
+                app:layout_constraintEnd_toStartOf="@+id/ib_center"
+                app:layout_constraintTop_toBottomOf="@+id/layout1"
+                app:srcCompat="@drawable/round_button_blue" />
+
+            <ImageButton
+                android:id="@+id/ib_left2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/white"
+                android:stateListAnimator="@drawable/select_anmi"
+                app:layout_constraintEnd_toStartOf="@+id/ib_left1"
+                app:layout_constraintTop_toBottomOf="@+id/layout1"
+                app:srcCompat="@drawable/round_button_red" />
+
+            <ImageButton
+                android:id="@+id/ib_right1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/white"
+                android:stateListAnimator="@drawable/select_anmi"
+                app:layout_constraintStart_toEndOf="@+id/ib_center"
+                app:layout_constraintTop_toBottomOf="@+id/layout1"
+                app:srcCompat="@drawable/round_button_blue" />
+
+            <ImageButton
+                android:id="@+id/ib_right2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/white"
+                android:stateListAnimator="@drawable/select_anmi"
+                app:layout_constraintStart_toEndOf="@+id/ib_right1"
+                app:layout_constraintTop_toBottomOf="@+id/layout1"
+                app:srcCompat="@drawable/round_button_pink" />
 
             <TextView
-                android:id="@+id/tv_location_hp"
+                android:id="@+id/tv_center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="@{geography.location}"
+                android:text="水果"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/iv_location"
-                app:layout_constraintStart_toEndOf="@+id/iv_location"
-                app:layout_constraintTop_toTopOf="@+id/iv_location" />
+                app:layout_constraintBottom_toBottomOf="@+id/ib_center"
+                app:layout_constraintEnd_toEndOf="@+id/ib_center"
+                app:layout_constraintStart_toStartOf="@+id/ib_center"
+                app:layout_constraintTop_toTopOf="@+id/ib_center" />
 
-            <EditText
-                android:id="@+id/et_search"
-                android:layout_width="0dp"
-                android:layout_height="32sp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                android:background="@color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_location" />
+            <TextView
+                android:id="@+id/tv_left1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="快餐"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ib_left1"
+                app:layout_constraintEnd_toEndOf="@+id/ib_left1"
+                app:layout_constraintStart_toStartOf="@+id/ib_left1"
+                app:layout_constraintTop_toTopOf="@+id/ib_left1" />
 
-            <com.youth.banner.Banner
-                android:id="@+id/iv_comm"
-                android:layout_width="0dp"
-                android:layout_height="150dp"
+            <TextView
+                android:id="@+id/tv_left2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="早餐"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ib_left2"
+                app:layout_constraintEnd_toEndOf="@+id/ib_left2"
+                app:layout_constraintStart_toStartOf="@+id/ib_left2"
+                app:layout_constraintTop_toTopOf="@+id/ib_left2" />
+
+            <TextView
+                android:id="@+id/tv_right1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="饮品"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ib_right1"
+                app:layout_constraintEnd_toEndOf="@+id/ib_right1"
+                app:layout_constraintStart_toStartOf="@+id/ib_right1"
+                app:layout_constraintTop_toTopOf="@+id/ib_right1" />
+
+            <TextView
+                android:id="@+id/tv_right2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="甜品"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ib_right2"
+                app:layout_constraintEnd_toEndOf="@+id/ib_right2"
+                app:layout_constraintStart_toStartOf="@+id/ib_right2"
+                app:layout_constraintTop_toTopOf="@+id/ib_right2" />
+
+            <TextView
+                android:id="@+id/tv_recommender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:text="推荐商家"
+                android:textColor="@color/black"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_search" />
+                app:layout_constraintTop_toBottomOf="@+id/ib_center" />
+
+            <TextView
+                android:id="@+id/bt_comprehensive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text="综合排序"
+                android:textColor="@{takeout.sortKind == Constants.SortKind.COMPREHENSIVE ? @color/sky_blue : @color/gray}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_recommender" />
+
+            <TextView
+                android:id="@+id/bt_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text="距离"
+                android:textColor="@{takeout.sortKind == Constants.SortKind.DISTANCE ? @color/sky_blue : @color/gray}"
+                app:layout_constraintStart_toEndOf="@+id/bt_comprehensive"
+                app:layout_constraintTop_toBottomOf="@+id/tv_recommender" />
+
+            <TextView
+                android:id="@+id/bt_sold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text="销量"
+                android:textColor="@{takeout.sortKind == Constants.SortKind.SOLD ? @color/sky_blue : @color/gray}"
+                app:layout_constraintStart_toEndOf="@+id/bt_distance"
+                app:layout_constraintTop_toBottomOf="@+id/tv_recommender" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <ImageButton
-            android:id="@+id/ib_center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layout1"
-            app:srcCompat="@drawable/round_button_green" />
-
-        <ImageButton
-            android:id="@+id/ib_left1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/white"
-            app:layout_constraintEnd_toStartOf="@+id/ib_center"
-            app:layout_constraintTop_toBottomOf="@+id/layout1"
-            app:srcCompat="@drawable/round_button_blue" />
-
-        <ImageButton
-            android:id="@+id/ib_left2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/white"
-            app:layout_constraintEnd_toStartOf="@+id/ib_left1"
-            app:layout_constraintTop_toBottomOf="@+id/layout1"
-            app:srcCompat="@drawable/round_button_red" />
-
-        <ImageButton
-            android:id="@+id/ib_right1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/white"
-            app:layout_constraintStart_toEndOf="@+id/ib_center"
-            app:layout_constraintTop_toBottomOf="@+id/layout1"
-            app:srcCompat="@drawable/round_button_blue" />
-
-        <ImageButton
-            android:id="@+id/ib_right2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/white"
-            app:layout_constraintStart_toEndOf="@+id/ib_right1"
-            app:layout_constraintTop_toBottomOf="@+id/layout1"
-            app:srcCompat="@drawable/round_button_pink" />
-
-        <TextView
-            android:id="@+id/tv_center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="水果"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/ib_center"
-            app:layout_constraintEnd_toEndOf="@+id/ib_center"
-            app:layout_constraintStart_toStartOf="@+id/ib_center"
-            app:layout_constraintTop_toTopOf="@+id/ib_center" />
-
-        <TextView
-            android:id="@+id/tv_left1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="快餐"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/ib_left1"
-            app:layout_constraintEnd_toEndOf="@+id/ib_left1"
-            app:layout_constraintStart_toStartOf="@+id/ib_left1"
-            app:layout_constraintTop_toTopOf="@+id/ib_left1" />
-
-        <TextView
-            android:id="@+id/tv_left2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="早餐"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/ib_left2"
-            app:layout_constraintEnd_toEndOf="@+id/ib_left2"
-            app:layout_constraintStart_toStartOf="@+id/ib_left2"
-            app:layout_constraintTop_toTopOf="@+id/ib_left2" />
-
-        <TextView
-            android:id="@+id/tv_right1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="饮品"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/ib_right1"
-            app:layout_constraintEnd_toEndOf="@+id/ib_right1"
-            app:layout_constraintStart_toStartOf="@+id/ib_right1"
-            app:layout_constraintTop_toTopOf="@+id/ib_right1" />
-
-        <TextView
-            android:id="@+id/tv_right2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="甜品"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/ib_right2"
-            app:layout_constraintEnd_toEndOf="@+id/ib_right2"
-            app:layout_constraintStart_toStartOf="@+id/ib_right2"
-            app:layout_constraintTop_toTopOf="@+id/ib_right2" />
-
-        <TextView
-            android:id="@+id/tv_recommender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="推荐商家"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ib_center" />
-
-        <Button
-            android:id="@+id/bt_comprehensive"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:text="综合排序"
-            android:textColor="@color/sky_blue"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_recommender" />
-
-        <Button
-            android:id="@+id/bt_distance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:text="距离"
-            android:textColor="@color/gray"
-            app:layout_constraintStart_toEndOf="@+id/bt_comprehensive"
-            app:layout_constraintTop_toBottomOf="@+id/tv_recommender" />
-
-        <Button
-            android:id="@+id/bt_sold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:text="销量"
-            android:textColor="@color/gray"
-            app:layout_constraintStart_toEndOf="@+id/bt_distance"
-            app:layout_constraintTop_toBottomOf="@+id/tv_recommender" />
 
         <ListView
             android:id="@+id/homepage_shop_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginTop="8dp"
+            android:layout_weight="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bt_comprehensive" />
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>

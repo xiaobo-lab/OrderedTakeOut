@@ -50,4 +50,13 @@ public class Cart {
     public MutableLiveData<String> getCommodityImage() {
         return commodityImage;
     }
+
+    public Cart(String commodityName, Float commodityPrice, Integer commodityNumber, String commodityImage) {
+        this.commodityName.postValue(commodityName);
+        this.commodityPrice.postValue(commodityPrice);
+        this.commodityNumber.postValue(commodityNumber);
+        this.commodityImage.postValue(commodityImage);
+    }
+
+    public Cart() { }
 }

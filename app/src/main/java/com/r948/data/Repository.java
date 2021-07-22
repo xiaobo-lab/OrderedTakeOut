@@ -2,6 +2,7 @@ package com.r948.data;
 
 import android.widget.RatingBar;
 
+import androidx.annotation.Nullable;
 import androidx.lifecycle.MutableLiveData;
 
 import com.r948.data.local.LocalDataSource;
@@ -20,11 +21,16 @@ import com.r948.data.net.dao.OrderCommodityDao;
 import com.r948.data.net.dao.OrderDao;
 import com.r948.data.net.dao.ShopDao;
 import com.r948.data.net.dao.UserDao;
+import com.r948.models.ShowShop;
+import com.r948.utilities.Constants;
+import com.r948.utilities.StringUtil;
 
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Repository {
@@ -703,7 +709,7 @@ public class Repository {
         }
         try {
             Address address = new Address();
-            address.addressId=addressId;
+            address.addressId = addressId;
             localAddressDao.deleteAddressById(address);
         } catch (IOException | JSONException e) {
             message.postValue(e.getMessage());
@@ -788,5 +794,18 @@ public class Repository {
                 "https://p0.meituan.net/shaitu/9823ef7400816d25b5b6516fbeae9df2437864.jpg",
                 "https://p1.meituan.net/biztone/3018a28b1c5685869f4c30ef0d55f8983133641.jpg",
                 "https://p0.meituan.net/xianfu/9e2305ab84f6d33a4c8b10dc2bd4535979872.jpg");
+    }
+
+    /**
+     * 根据经纬度查询附近所有商家
+     *
+     * @param lat 纬度
+     * @param lon 精度
+     * @return list
+     */
+    // TODO: Repository 应该当实现一个根据所给经纬度查询附近所有商家的功能
+    public List<Shop> queryAllNearbyShop(double lat, double lon) {
+        List<Shop> shopList = new ArrayList<>();
+        return shopList;
     }
 }

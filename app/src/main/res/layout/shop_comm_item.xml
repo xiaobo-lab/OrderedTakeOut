@@ -1,170 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ImageView
-        android:id="@+id/iv_shop"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <TextView
-        android:id="@+id/tv_shop_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="店名"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/iv_shop"
-        app:layout_constraintTop_toTopOf="parent" />
+        <import type="java.util.List" />
 
-    <TextView
-        android:id="@+id/tv_shop_score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:text="评分"
-        android:textColor="@color/orange"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/iv_shop"
-        app:layout_constraintTop_toBottomOf="@+id/tv_shop_name" />
+        <import type="com.r948.utilities.Constants" />
 
-    <TextView
-        android:id="@+id/tv_xiaoliang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
-        android:text="销量"
-        android:textColor="@color/gray"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/tv_shop_score"
-        app:layout_constraintTop_toBottomOf="@+id/tv_shop_name" />
+        <variable
+            name="shop"
+            type="com.r948.models.ShowShop" />
 
-    <TextView
-        android:id="@+id/tv_shop_sold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="0"
-        android:textColor="@color/gray"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/tv_xiaoliang"
-        app:layout_constraintTop_toBottomOf="@+id/tv_shop_name" />
+        <variable
+            name="images"
+            type="List&lt;String>" />
 
-    <ImageView
-        android:id="@+id/iv_comm1"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/iv_shop"
-        app:layout_constraintTop_toBottomOf="@+id/iv_shop" />
+        <variable
+            name="names"
+            type="List&lt;String>" />
 
-    <ImageView
-        android:id="@+id/iv_comm2"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/iv_comm1"
-        app:layout_constraintTop_toBottomOf="@+id/iv_shop" />
+        <variable
+            name="prices"
+            type="List&lt;String>" />
+    </data>
 
-    <ImageView
-        android:id="@+id/iv_comm3"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/iv_comm2"
-        app:layout_constraintTop_toBottomOf="@+id/iv_shop" />
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/iv_comm1_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="商品1"
-        android:textColor="@color/gray"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/iv_comm1"
-        app:layout_constraintStart_toStartOf="@+id/iv_comm1"
-        app:layout_constraintTop_toBottomOf="@+id/iv_comm1" />
+        <ImageView
+            android:id="@+id/iv_shop"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/headicon"
+            app:imageUrl="@{shop.icon}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_comm2_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="商品2"
-        android:textColor="@color/gray"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/iv_comm2"
-        app:layout_constraintStart_toStartOf="@+id/iv_comm2"
-        app:layout_constraintTop_toBottomOf="@+id/iv_comm2" />
+        <TextView
+            android:id="@+id/tv_shop_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@{shop.name}"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/iv_shop"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_comm3_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="商品3"
-        android:textColor="@color/gray"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/iv_comm3"
-        app:layout_constraintStart_toStartOf="@+id/iv_comm3"
-        app:layout_constraintTop_toBottomOf="@+id/iv_comm3" />
+        <TextView
+            android:id="@+id/tv_shop_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:text="@{String.valueOf(shop.score)}"
+            android:textColor="@color/orange"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/iv_shop"
+            app:layout_constraintTop_toBottomOf="@+id/tv_shop_name" />
 
-    <TextView
-        android:id="@+id/tv_comm1_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="价格1"
-        android:textColor="@color/red"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/iv_comm1"
-        app:layout_constraintStart_toStartOf="@+id/iv_comm1"
-        app:layout_constraintTop_toBottomOf="@+id/iv_comm1_name" />
+        <TextView
+            android:id="@+id/tv_xiaoliang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:text="销量:"
+            android:textColor="@color/gray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_shop_score"
+            app:layout_constraintTop_toBottomOf="@+id/tv_shop_name" />
 
-    <TextView
-        android:id="@+id/tv_comm2_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="价格2"
-        android:textColor="@color/red"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/iv_comm2"
-        app:layout_constraintStart_toStartOf="@+id/iv_comm2"
-        app:layout_constraintTop_toBottomOf="@+id/tv_comm2_name" />
+        <TextView
+            android:id="@+id/tv_shop_sold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@{String.valueOf(shop.salesVolume)}"
+            android:textColor="@color/gray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_xiaoliang"
+            app:layout_constraintTop_toBottomOf="@+id/tv_shop_name" />
 
-    <TextView
-        android:id="@+id/tv_comm3_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="价格3"
-        android:textColor="@color/red"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/iv_comm3"
-        app:layout_constraintStart_toStartOf="@+id/iv_comm3"
-        app:layout_constraintTop_toBottomOf="@+id/tv_comm3_name" />
+        <ImageView
+            android:id="@+id/iv_comm1"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/headicon"
+            app:imageUrl="@{images[0]}"
+            app:layout_constraintStart_toEndOf="@+id/iv_shop"
+            app:layout_constraintTop_toBottomOf="@+id/iv_shop" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/iv_comm2"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/headicon"
+            app:imageUrl="@{images[1]}"
+            app:layout_constraintStart_toEndOf="@+id/iv_comm1"
+            app:layout_constraintTop_toBottomOf="@+id/iv_shop" />
+
+        <ImageView
+            android:id="@+id/iv_comm3"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/headicon"
+            app:imageUrl="@{images[2]}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/iv_comm2"
+            app:layout_constraintTop_toBottomOf="@+id/iv_shop" />
+
+        <TextView
+            android:id="@+id/iv_comm1_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{names[0]}"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_comm1"
+            app:layout_constraintStart_toStartOf="@+id/iv_comm1"
+            app:layout_constraintTop_toBottomOf="@+id/iv_comm1" />
+
+        <TextView
+            android:id="@+id/tv_comm2_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{names[1]}"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_comm2"
+            app:layout_constraintStart_toStartOf="@+id/iv_comm2"
+            app:layout_constraintTop_toBottomOf="@+id/iv_comm2" />
+
+        <TextView
+            android:id="@+id/tv_comm3_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{names[2]}"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_comm3"
+            app:layout_constraintStart_toStartOf="@+id/iv_comm3"
+            app:layout_constraintTop_toBottomOf="@+id/iv_comm3" />
+
+        <TextView
+            android:id="@+id/tv_comm1_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@{prices[0]}"
+            android:textColor="@color/red"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/iv_comm1"
+            app:layout_constraintStart_toStartOf="@+id/iv_comm1"
+            app:layout_constraintTop_toBottomOf="@+id/iv_comm1_name" />
+
+        <TextView
+            android:id="@+id/tv_comm2_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@{prices[1]}"
+            android:textColor="@color/red"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/iv_comm2"
+            app:layout_constraintStart_toStartOf="@+id/iv_comm2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_comm2_name" />
+
+        <TextView
+            android:id="@+id/tv_comm3_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@{prices[2]}"
+            android:textColor="@color/red"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/iv_comm3"
+            app:layout_constraintStart_toStartOf="@+id/iv_comm3"
+            app:layout_constraintTop_toBottomOf="@+id/tv_comm3_name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

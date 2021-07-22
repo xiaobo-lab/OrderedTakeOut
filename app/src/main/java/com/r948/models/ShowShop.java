@@ -51,4 +51,14 @@ public class ShowShop {
     public MutableLiveData<String> getDistance() {
         return distance;
     }
+
+    public ShowShop(String name, String icon, Float score, Integer salesVolume, String distance) {
+        this.name.postValue(name);
+        this.icon.postValue(icon);
+        this.score.postValue(score);
+        this.salesVolume.postValue(salesVolume);
+        this.distance.postValue(distance);
+    }
+
+    public ShowShop() { }
 }

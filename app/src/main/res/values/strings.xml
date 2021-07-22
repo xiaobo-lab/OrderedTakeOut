@@ -3,13 +3,28 @@
     <string name="title_takeout">外卖</string>
     <string name="title_order">订单</string>
     <string name="title_me">我的</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string-array name="comm_sort">
-        <item>早餐</item>
-        <item>快餐</item>
-        <item>水果</item>
-        <item>饮品</item>
-        <item>甜品</item>
-    </string-array>
+
+    <string name="message">Button</string>
+    <string name="commodity">商品</string>
+    <string name="score">评分</string>
+    <string name="shop">商家</string>
+    <string name="shop_name">商店名称</string>
+    <string name="commodity_score">商品评分</string>
+    <string name="shop_score">商店评分</string>
+    <string name="sale_volume">售卖数量</string>
+    <string name="time">营业时间</string>
+    <string name="shop_address">商店地址</string>
+    <string name="shop_phone">联系电话</string>
+    <string name="picture">图片</string>
+    <string name="order">点餐</string>
+    <string name="back">返回</string>
+    <string name="pay">去结算</string>
+    <string name="breakfast">早餐</string>
+    <string name="snack">快餐</string>
+    <string name="fruit">水果</string>
+    <string name="drink">饮品</string>
+    <string name="dessert">甜点</string>
+    <string name="comm_name">商品名称</string>
+    <string name="price">商品价格</string>
+
 </resources>

@@ -47,4 +47,13 @@ public class ShowCommodity {
     public MutableLiveData<Float> getScore() {
         return score;
     }
+
+    public ShowCommodity(String image, String name, Integer salesVolume, Float price) {
+        this.image.postValue(image);
+        this.name.postValue(name);
+        this.salesVolume.postValue(salesVolume);
+        this.price.postValue(price);
+    }
+
+    public ShowCommodity() { }
 }
