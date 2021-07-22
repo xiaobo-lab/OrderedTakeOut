@@ -8,6 +8,10 @@ import androidx.room.Update;
 
 import com.r948.data.model.Address;
 
+import org.json.JSONException;
+
+import java.io.IOException;
+
 @Dao
 public interface AddressDao {
     /**
@@ -17,7 +21,7 @@ public interface AddressDao {
      * @return 用户的所有address
      */
     @Query("select * from address where address.user_id =:userId")
-    Address[] findAddressByUserId(int userId);
+    Address[] findAddressByUserId(int userId)throws IOException, JSONException;
 
     /**
      * 应用场景：用户添加一条新的地址
@@ -25,15 +29,15 @@ public interface AddressDao {
      * @param address address
      */
     @Insert
-    void addAddress(Address address);
+    void addAddress(Address address)throws IOException, JSONException;
 
     /**
      * 应用场景：删除指定的地址
      *
-     * @param address address
+     * @param addressId address id
      */
     @Delete
-    void deleteAddressById(Address address);
+    void deleteAddressById(int addressId)throws IOException, JSONException;
 
     /**
      * 应用场景：用户更新自己的某条地址
@@ -41,5 +45,5 @@ public interface AddressDao {
      * @param address address
      */
     @Update
-    void updateAddress(Address address);
+    void updateAddress(Address address)throws IOException, JSONException;
 }

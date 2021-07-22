@@ -434,9 +434,10 @@ public class Repository {
         }
         return users.length == 1 ? users[0] : new User(0, "", "", "", (byte) -1, "");
     }
-    public boolean updateNetUser(User user){
+
+    public boolean updateNetUser(User user) {
         // 参数有效性检查
-        if (user.userId<=0||user.userPhone==null||user.password==null||user.username==null||user.userHeadIcon==null||user.role<0||user.role>2) {
+        if (user.userId <= 0 || user.userPhone == null || user.password == null || user.username == null || user.userHeadIcon == null || user.role < 0 || user.role > 2) {
             message.postValue("user的对象中有属性为null!--(在 userDao的updateNetUser方法)");
             return false;
         }
@@ -447,5 +448,109 @@ public class Repository {
             message.postValue(e.getMessage());
         }
         return res == 1;
+    }
+    public boolean addNetUser(User user){
+        // 参数有效性检查
+        if (user.userPhone == null || user.password == null || user.username == null || user.userHeadIcon == null || user.role < 0 || user.role > 2) {
+            message.postValue("user的对象中有属性为null!--(在 userDao的addNetUser方法)");
+            return false;
+        }
+        int res = 0;
+        try {
+            res = userDao.addUser(user);
+        } catch (IOException | JSONException e) {
+            message.postValue(e.getMessage());
+        }
+        return res == 1;
+    }
+    //以下是Local.AddressDao的方法
+    public Address findLocalAddressByUserId(int userId) {
+        Address[] addresses;
+        if (userId <= 0) {
+            message.postValue("userId 为0！(在AddressDao的findLocalAddressByUserId方法)");
+            return new Address(0, 0, "", "", 0.0, 0.0);
+        }
+        try {
+            addresses = localAddressDao.findAddressByUserId(userId);
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+            message.postValue(e.getMessage());
+            return new Address(0, 0, "", "", 0.0, 0.0);
+        }
+        return addresses.length == 1 ? addresses[0] : new Address(0, 0, "", "", 0.0, 0.0);
+    }
+
+    public boolean addLocalAddress(Address address) {
+        // 参数有效性检查
+        if (address.userId <= 0 || address.addressName == null || address.addressPhone == null || address.addressLon == null || address.addressLat == null) {
+            message.postValue("address的对象中有属性为null!--(在 AddressDao的addLocalAddress方法)");
+            return false;
+        }
+        try {
+            localAddressDao.addAddress(address);
+        } catch (IOException | JSONException e) {
+            message.postValue(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    public boolean deleteLocalAddressById(int addressId) {
+        if (addressId <= 0) {
+            message.postValue("address的对象中有属性为null!--(在 AddressDao的deleteLocalAddressById方法)");
+            return false;
+        }
+        try {
+            localAddressDao.deleteAddressById(addressId);
+        } catch (IOException | JSONException e) {
+            message.postValue(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    public boolean updateLocalAddress(Address address) {
+        // 参数有效性检查
+        if (address.addressId <= 0 || address.userId <= 0 || address.addressName == null || address.addressPhone == null || address.addressLon == null || address.addressLat == null) {
+            message.postValue("address的对象中有属性为null!--(在 AddressDao的addLocalAddress方法)");
+            return false;
+        }
+        try {
+            localAddressDao.updateAddress(address);
+        } catch (IOException | JSONException e) {
+            message.postValue(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+    //以下是LocalUserDao的方法
+    public User queryLocalUsersByLoginInfo(String phone, String password) {
+        User[] users;
+        if (phone == null || password == null) {
+            message.postValue("id 为0！(在UserDao的queryNetUsersByLoginInfo方法)");
+            return new User(0, "", "", "", (byte) -1, "");
+        }
+        try {
+            users = localUserDao.queryUsersByLoginInfo(phone, password);
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+            message.postValue(e.getMessage());
+            return new User(0, "", "", "", (byte) -1, "");
+        }
+        return users.length == 1 ? users[0] : new User(0, "", "", "", (byte) -1, "");
+    }
+    public boolean addLocalUser(User user){
+        // 参数有效性检查
+        if (user.userPhone==null||user.password==null||user.userHeadIcon==null||user.role<0||user.role>2) {
+            message.postValue("address的对象中有属性为null!--(在 UserDao的addLocalUser方法)");
+            return false;
+        }
+        try {
+            localUserDao.addUser(user);
+        } catch (IOException | JSONException e) {
+            message.postValue(e.getMessage());
+            return false;
+        }
+        return true;
     }
 }

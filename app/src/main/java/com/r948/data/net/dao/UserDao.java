@@ -35,4 +35,14 @@ public interface UserDao {
      * @sql update `user` set user_phone = :user.userPhone, password = :user.password, username = :user.username, user_head_icon = :user.userHeadIcon, role = :user.role where user_id = user.userId
      */
     int updateUser(User user)throws IOException, JSONException;
+
+    /**
+     *
+     * 添加用户，服务端
+     * @param user
+     * @return int
+     * @throws IOException
+     * @throws JSONException
+     */
+    int addUser(User user)throws IOException, JSONException;
 }
